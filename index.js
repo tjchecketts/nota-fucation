@@ -62,9 +62,8 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
                 this.bottomRight.appendChild(thereBeToast);
         }
 
-        // setTimeout(() => {
-        //     thereBeToast.parentNode.removeChild(thereBeToast);
-        // }, 8000);
-        // TODO ^ figure out time, 5000?
+        setTimeout(() => {
+            thereBeToast.parentNode.removeChild(thereBeToast);
+        }, 4000);
     }
 });
