@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <style>
+            .unicorn {
+                --warn-color: blue;
+            }    
+        </style>
         <script src='index.js' type='text/javascript'></script>
     </head>
     <body>
+        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='warn'; document.dispatchEvent(a);">
+            <button type="submit">Damn</button>
+        </form>
         <nota-fucation></nota-fucation>
     </body>
 </html>

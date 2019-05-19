@@ -36,6 +36,7 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
     }
 
     handleNotaToast(event) {
+        event.stopPropagation();
         let thereBeToast = document.importNode(this.notaToastTemplate.content, true).firstElementChild;
         if (!event.message) {
             console.error('no message provided');
@@ -43,6 +44,19 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
             // return;
         }
         thereBeToast.querySelector('.notaText').innerText = event.message || 'default message';
+
+        const notaClassList = [
+            'danger',
+            'warn',
+            'info',
+            'error',
+            'success',
+            'failure',
+        ];
+        
+        if (notaClassList.includes(event.class)) {
+            thereBeToast.classList.add(event.class);
+        }
 
         switch (event.position) {
             case 'top-left':
