@@ -1,5 +1,7 @@
 // HTML goes here
 // templates MUST go after the divs
+import './toast.js';
+
 const template = `
 <div id='top-left'></div>
 <div id='top-flex'>
@@ -22,7 +24,7 @@ const template = `
 customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
     constructor() {
         super();
-        this.addEventListener('change', this.redraw, {passive: true});
+        // this.addEventListener('change', this.redraw, {passive: true});
         let shadow = this.attachShadow({mode:'open'});
         Array.from((new DOMParser()).parseFromString(template, 'text/html').body.children).forEach(child => shadow.appendChild(child));
         this.topLeft = shadow.getElementById('top-left');
@@ -37,13 +39,15 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
 
     handleNotaToast(event) {
         event.stopPropagation();
-        let thereBeToast = document.importNode(this.notaToastTemplate.content, true).firstElementChild;
+        // let thereBeToast = document.importNode(this.notaToastTemplate.content, true).firstElementChild;
+        let thereBeToast = document.createElement('nota-toast');
         if (!event.message) {
             console.error('no message provided');
             // TODO - put back in when ready
             // return;
         }
-        thereBeToast.querySelector('.notaText').innerText = event.message || 'default message';
+        thereBeToast.setAttribute('message', event.message || 'default message');
+        // thereBeToast.querySelector('.notaText').innerText = event.message || 'default message';
 
         const notaClassList = [
             'danger',
@@ -53,7 +57,7 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
             'success',
             'failure',
         ];
-        
+
         if (notaClassList.includes(event.class)) {
             thereBeToast.classList.add(event.class);
         }
@@ -76,8 +80,8 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
                 this.bottomRight.appendChild(thereBeToast);
         }
 
-        setTimeout(() => {
-            thereBeToast.parentNode.removeChild(thereBeToast);
-        }, 4000);
+        // setTimeout(() => {
+        //     thereBeToast.parentNode.removeChild(thereBeToast);
+        // }, 4000);
     }
 });
