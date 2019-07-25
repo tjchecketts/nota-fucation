@@ -1,38 +1,15 @@
-:root, :host {
+:host {
     position: static;
-    --nota-warn-color: var(--warn-color, #9a3251);
-    --nota-warn-text-color: var(--warn-text-color, #fff);
-    --nota-warn-border-color: var(--warn-border-color, #fff);
-
-    --nota-danger-color: var(--danger-color, #761433);
-    --nota-danger-text-color: var(--danger-text-color, #fff);
-    --nota-danger-border-color: var(--danger-border-color, #fff);
-
-    --nota-info-color: var(--info-color, #AD9838);
-    --nota-info-text-color: var(--info-text-color, black);
-    --nota-info-border-color: var(--info-border-color, black);
-
-    --nota-failure-color: var(--failure-color, #4F0019);
-    --nota-failure-text-color: var(--failure-text-color, #fff);
-    --nota-failure-border-color: var(--failure-border-color, #fff);
-
-    --nota-success-color: var(--success-color, #639A32);
-    --nota-success-text-color: var(--success-text-color, #fff);
-    --nota-success-border-color: var(--success-border-color, #fff);
-
-    --nota-default-color: var(--default-color, #403077);
-    --nota-default-text-color: var(--default-text-color, #fff);
-    --nota-default-border-color: var(--default-border-color, #fff);
 }
 
-:root.global , :host.global {
+:host(.global) {
     position: fixed;
 }
 
-#top-left, 
-#top-middle, 
-#top-right, 
-#bottom-left, 
+#top-left,
+#top-middle,
+#top-right,
+#bottom-left,
 #bottom-right {
     position: absolute;
     padding: 5px;
@@ -50,6 +27,9 @@
 #top-right {
     top: 0;
     right: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 #bottom-left {
@@ -70,46 +50,4 @@
     width: 100%;
     height: 0;
     top: 0;
-}
-
-.notaToast {
-    border: 1px var(--nota-default-border-color) solid;
-    padding: 10px;
-    min-width: 100px;
-    max-width: 50vw;
-    background-color: var(--nota-default-color);
-    border-radius: 5px;
-    margin-top: 7px;
-    color: var(--nota-default-text-color);
-}
-
-/* Begin Default Nota-Class Styles */
-.notaToast.danger, .notaToast.error {
-    background-color: var(--nota-danger-color);
-    border-color: var(--nota-danger-border-color);
-    color: var(--nota-danger-text-color);
-}
-
-.notaToast.failure {
-    background-color: var(--nota-failure-color);
-    border-color: var(--nota-failure-border-color);
-    color: var(--nota-failure-text-color);
-}
-
-.notaToast.warn {
-    background-color: var(--nota-warn-color);
-    border-color: var(--nota-warn-border-color);
-    color: var(--nota-warn-text-color);
-}
-
-.notaToast.success {
-    background-color: var(--nota-success-color);
-    border-color: var(--nota-success-border-color);
-    color: var(--nota-success-text-color);
-}
-
-.notaToast.info {
-    background-color: var(--nota-info-color);
-    border-color: var(--nota-info-border-color);
-    color: var(--nota-info-text-color);
 }

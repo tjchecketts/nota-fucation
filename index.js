@@ -10,21 +10,12 @@ const template = `
 <div id='top-right'></div>
 <div id='bottom-left'></div>
 <div id='bottom-right'></div>
-<template id='nota-dialog-template'>
-    <dialog></dialog>
-</template>
-<template id='nota-toast-template'>
-    <div class='notaToast'>
-        <span class='notaText'></span>
-    </div>
-</template>
 <style> @import "index.css"; </style>
 `;
 
 customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
     constructor() {
         super();
-        // this.addEventListener('change', this.redraw, {passive: true});
         let shadow = this.attachShadow({mode:'open'});
         Array.from((new DOMParser()).parseFromString(template, 'text/html').body.children).forEach(child => shadow.appendChild(child));
         this.topLeft = shadow.getElementById('top-left');
@@ -39,7 +30,6 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
 
     handleNotaToast(event) {
         event.stopPropagation();
-        // let thereBeToast = document.importNode(this.notaToastTemplate.content, true).firstElementChild;
         let thereBeToast = document.createElement('nota-toast');
         if (!event.message) {
             console.error('no message provided');
@@ -47,7 +37,6 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
             // return;
         }
         thereBeToast.setAttribute('message', event.message || 'default message');
-        // thereBeToast.querySelector('.notaText').innerText = event.message || 'default message';
 
         const notaClassList = [
             'danger',
@@ -79,9 +68,5 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
             default:
                 this.bottomRight.appendChild(thereBeToast);
         }
-
-        // setTimeout(() => {
-        //     thereBeToast.parentNode.removeChild(thereBeToast);
-        // }, 4000);
     }
 });

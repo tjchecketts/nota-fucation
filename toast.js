@@ -1,10 +1,8 @@
 const template = `
-<div class='notaToast'>
-    <span class='notaText'></span>
-    <button id='notaClose'>X</button>
-    <progress id='notaProgressBar' max=1 value=1></progress>
-</div>
-<style> @import "toast.css"; </style>
+  <span class='notaText'></span>
+  <progress id='notaProgressBar' max=1 value=1></progress>
+  <button id='notaClose'>X</button>
+  <style> @import "toast.css"; </style>
 `;
 
 customElements.define('nota-toast', class NotaToast extends HTMLElement {
@@ -21,9 +19,18 @@ customElements.define('nota-toast', class NotaToast extends HTMLElement {
     shadow.getElementById('notaClose').addEventListener('click', this.destroy.bind(this));
 
     this.startTime = Date.now();
-    this.maxTime = 0;
+    this.maxTime = 7000;
     this.hovering = false;
     this.selfDestructCounter = 0;
+
+    //TODO add selfDestruct config
+    //TODO add optional selfDestruct
+    //TODO add toggle close button
+    //TODO add toggle progress bar
+    //TODO add toggle pause on hover
+    //TODO max limit/queueing system for excessive nota-fucations
+    //TODO with queue: persistent to Local storage when marked as persisten/important
+
 
     if (this.maxTime > 0) {
       this.selfDestructInterval = setInterval(this.updateSelfDestruct.bind(this), 40);

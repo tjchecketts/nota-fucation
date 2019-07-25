@@ -1,0 +1,99 @@
+:host {
+  display: block;
+  position: relative;
+  border: 1px var(--nota-default-border-color, #fff) solid;
+  padding: 10px;
+  min-width: 100px;
+  max-width: 50vw;
+  background-color: var(--nota-default-color, #403077);
+  border-radius: 5px;
+  margin-top: 7px;
+  color: var(--nota-default-text-color, #fff);
+  overflow: hidden;
+}
+
+button {
+  position: absolute;
+  border: none;
+  background: #FFF5;
+  color: white;
+  border-bottom-left-radius: 6px;
+  top: 0;
+  right: 0;
+}
+
+progress {
+  position: absolute;
+  border: none;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 5px;
+  opacity: var(--nota-default-progress-opacity, 1);
+  -webkit-appearance: none;
+  background: transparent;
+}
+
+progress::-webkit-progress-bar {
+  background: transparent;
+}
+
+progress::-webkit-progress-value {
+  background: pink;
+}
+
+progress::-moz-progress-bar {
+  background: pink;
+}
+
+/* Begin Default Nota-Class Styles */
+:host(.danger), :host(.error) {
+    background-color: var(--nota-danger-color, #761433);
+    border-color: var(--nota-danger-border-color, #fff);
+    color: var(--nota-danger-text-color, #fff);
+}
+
+:host(.danger) progress, :host(.error) progress {
+  opacity: var(--nota-danger-progress-opacity, inherit);
+}
+
+:host(.failure) {
+    background-color: var(--nota-failure-color, #4F0019);
+    border-color: var(--nota-failure-border-color, #fff);
+    color: var(--nota-failure-text-color, #fff);
+}
+
+:host(.failure) progress {
+  opacity: var(--nota-failure-progress-opacity, inherit);
+}
+
+:host(.warn) {
+    background-color: var(--nota-warn-color, #9a3251);
+    border-color: var(--nota-warn-border-color, #fff);
+    color: var(--nota-warn-text-color, #fff);
+}
+
+:host(.warn) progress {
+  opacity: var(--nota-warn-progress-opacity, inherit);
+}
+
+:host(.success) {
+    background-color: var(--nota-success-color, #639A32);
+    border-color: var(--nota-success-border-color, white);
+    color: var(--nota-success-text-color, white);
+}
+
+:host(.success) progress {
+  opacity: var(--nota-success-progress-opacity, inherit);
+}
+
+:host(.info) {
+    background-color: var(--nota-info-color, #AD9838);
+    border-color: var(--nota-info-border-color, black);
+    color: var(--nota-info-text-color, black);
+}
+
+:host(.info) progress {
+  opacity: var(--nota-info-progress-opacity, inherit);
+}
