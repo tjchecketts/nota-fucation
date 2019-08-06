@@ -31,12 +31,20 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
     handleNotaToast(event) {
         event.stopPropagation();
         let thereBeToast = document.createElement('nota-toast');
+        
         if (!event.message) {
             console.error('no message provided');
             // TODO - put back in when ready
             // return;
         }
+
         thereBeToast.setAttribute('message', event.message || 'default message');
+        if (event.hasOwnProperty('hideCloseButton')) {
+            thereBeToast.setAttribute('hide-close-button', 'true');
+        }
+        if (event.maxTime) {
+            thereBeToast.setAttribute('max-time', event.maxTime);
+        }
 
         const notaClassList = [
             'danger',

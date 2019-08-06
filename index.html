@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            .unicorn {
-                --warn-color: blue;
-            }
-        </style>
         <script src='index.js' type='module'></script>
     </head>
     <body>
         <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'really long sentence content for a nota-fucation'; a.position = 'top-right'; document.dispatchEvent(a);">
             <button type="submit">Damn</button>
         </form>
-        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='warn'; document.dispatchEvent(a);">
+        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='warn'; a.hideCloseButton='true'; document.dispatchEvent(a);">
             <button type="submit">Warn</button>
         </form>
-        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='danger'; document.dispatchEvent(a);">
+        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='danger'; a.maxTime=2000; document.dispatchEvent(a);">
             <button type="submit">Danger</button>
         </form>
         <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='failure'; document.dispatchEvent(a);">
