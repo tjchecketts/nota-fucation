@@ -9,6 +9,9 @@ const template = `
 </div>
 <div id='top-right'></div>
 <div id='bottom-left'></div>
+<div id='bottom-fixed'>
+    <div id='bottom-middle'></div>
+</div>
 <div id='bottom-right'></div>
 <style> @import "index.css"; </style>
 `;
@@ -22,6 +25,7 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
         this.topMiddle = shadow.getElementById('top-middle');
         this.topRight = shadow.getElementById('top-right');
         this.bottomLeft = shadow.getElementById('bottom-left');
+        this.bottomMiddle = shadow.getElementById('bottom-middle');
         this.bottomRight = shadow.getElementById('bottom-right');
         this.notaToastTemplate = shadow.getElementById('nota-toast-template');
         this.notaDialogTemplate = shadow.getElementById('nota-dialog-template');
@@ -71,6 +75,9 @@ customElements.define('nota-fucation', class NotaFucation extends HTMLElement {
                 break;
             case 'bottom-left':
                 this.bottomLeft.appendChild(thereBeToast);
+                break;
+            case 'bottom-middle':
+                this.bottomMiddle.appendChild(thereBeToast);
                 break;
             case 'bottom-right':
             default:

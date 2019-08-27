@@ -35,6 +35,7 @@ customElements.define('nota-toast', class NotaToast extends HTMLElement {
     //TODO add toggle pause on hover
     //TODO max limit/queueing system for excessive nota-fucations
     //TODO with queue: persistent to Local storage when marked as persisten/important
+    // TODO => Library specific interfaces for js frameworks (React etc)
 
 
     if (this.maxTime > 0) {

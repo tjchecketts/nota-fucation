@@ -5,7 +5,7 @@
   padding: 10px;
   min-width: 100px;
   max-width: 50vw;
-  background-color: var(--nota-default-color, #403077);
+  background-color: var(--nota-default-color, #2257eb);
   border-radius: 5px;
   margin-top: 7px;
   color: var(--nota-default-text-color, #fff);
@@ -53,7 +53,7 @@ progress::-moz-progress-bar {
 
 /* Begin Default Nota-Class Styles */
 :host(.danger), :host(.error) {
-    background-color: var(--nota-danger-color, #761433);
+    background-color: var(--nota-danger-color, #FF815E);
     border-color: var(--nota-danger-border-color, #fff);
     color: var(--nota-danger-text-color, #fff);
 }
@@ -89,7 +89,7 @@ progress::-moz-progress-bar {
 }
 
 :host(.warn) {
-    background-color: var(--nota-warn-color, #9a3251);
+    background-color: var(--nota-warn-color, #D6B84B);
     border-color: var(--nota-warn-border-color, #fff);
     color: var(--nota-warn-text-color, #fff);
 }
@@ -107,7 +107,7 @@ progress::-moz-progress-bar {
 }
 
 :host(.success) {
-    background-color: var(--nota-success-color, #639A32);
+    background-color: var(--nota-success-color, #8DBF58);
     border-color: var(--nota-success-border-color, white);
     color: var(--nota-success-text-color, white);
 }
@@ -125,9 +125,9 @@ progress::-moz-progress-bar {
 }
 
 :host(.info) {
-    background-color: var(--nota-info-color, #AD9838);
-    border-color: var(--nota-info-border-color, black);
-    color: var(--nota-info-text-color, black);
+    background-color: var(--nota-info-color, #58BF8C);
+    border-color: var(--nota-info-border-color, white);
+    color: var(--nota-info-text-color, white);
 }
 
 :host(.info) progress {

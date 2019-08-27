@@ -3,23 +3,23 @@
     <head>
         <script src='index.js' type='module'></script>
     </head>
-    <body>
-        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'really long sentence content for a nota-fucation'; a.position = 'top-right'; document.dispatchEvent(a);">
+    <body style="background-color: burlywood">
+        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'really long sentence content for a nota-fucation'; a.position = 'bottom-middle'; a.maxTime=100000; document.dispatchEvent(a);">
             <button type="submit">Damn</button>
         </form>
         <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='warn'; a.hideCloseButton='true'; document.dispatchEvent(a);">
             <button type="submit">Warn</button>
         </form>
-        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='danger'; a.maxTime=2000; document.dispatchEvent(a);">
+        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'bottom-middle'; a.class='danger'; a.maxTime=1000000; document.dispatchEvent(a);">
             <button type="submit">Danger</button>
         </form>
-        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='failure'; document.dispatchEvent(a);">
+        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-middle'; a.class='failure'; document.dispatchEvent(a);">
             <button type="submit">Failure</button>
         </form>
-        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='info'; document.dispatchEvent(a);">
+        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'bottom-right'; a.class='info'; document.dispatchEvent(a);">
             <button type="submit">Info</button>
         </form>
-        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'top-right'; a.class='success'; document.dispatchEvent(a);">
+        <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'bottom-left'; a.class='success'; document.dispatchEvent(a);">
             <button type="submit">Success</button>
         </form>
         <nota-fucation></nota-fucation>
