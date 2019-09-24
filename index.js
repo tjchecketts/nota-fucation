@@ -13,7 +13,7 @@ const template = `
     <div id='bottom-middle'></div>
 </div>
 <div id='bottom-right'></div>
-<style> @import "index.css"; </style>
+<style> @import "./index.css"; </style>
 `;
 
 customElements.define('nota-fucation', class NotaFucation extends HTMLElement {

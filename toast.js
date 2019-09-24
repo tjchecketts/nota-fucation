@@ -2,7 +2,7 @@ const template = `
   <span class='notaText'></span>
   <progress id='notaProgressBar' max=1 value=1></progress>
   <button id='notaClose'>X</button>
-  <style> @import "toast.css"; </style>
+  <style> @import "./toast.css"; </style>
 `;
 
 customElements.define('nota-toast', class NotaToast extends HTMLElement {
