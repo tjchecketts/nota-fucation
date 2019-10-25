@@ -1,0 +1,30 @@
+{
+  "name": "nota-fucation",
+  "version": "1.0.0",
+  "description": "All Framework compatible native web component implementation of stylizable toasts",
+  "browser": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tjchecketts/nota-fucation.git"
+  },
+  "keywords": [
+    "toast",
+    "simple",
+    "react",
+    "vue",
+    "angular"
+  ],
+  "contributors": [
+      "Neal Benner",
+      "Brett Adamson",
+      "TJ Checketts"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tjchecketts/nota-fucation/issues"
+  },
+  "homepage": "https://github.com/tjchecketts/nota-fucation#readme"
+}
