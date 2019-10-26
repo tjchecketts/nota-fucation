@@ -78,7 +78,7 @@ Coming soon
 ```
 # CONFIGURATION
 ## changing the defaults
-
+Coming soon
 
 ## Styling your toasts
 Until the ::part and ::theme CSS standards are finished and implemented we offer styling through CSS variables. Our variable names are long yes, but we are opting for clarity over brevity.
@@ -123,3 +123,9 @@ Additional customization is planned, we're just evaluating what properties it ma
 | --nota-info-background-color    | background-color            | info           |
 | --nota-info-progress-opacity    | progress bar opacity        | info           |
 | --nota-info-progress-color      | progress bar color          | info           |
+
+# Features under consideration or in progress
+- configuration of certain toast behavior globally, no need to pass your defaults to every toast call
+- shown limit - put new toasts in a queue and only show a set number at a time feeding automatically from the queue as the oldest expires
+- toast lifecycle overrides - allow more control over toast lifecycle with smart defaults for those who don't need it
+- toggling of various behaviors - (showing progress bar, no timeout, progress bar render options (smooth, once a second, show seconds instead of a bar, etc...))
