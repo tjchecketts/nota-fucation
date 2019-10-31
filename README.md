@@ -10,6 +10,15 @@
 ```
 npm i --save nota-fucation
 ```
+or
+```
+yarn add nota-fucation
+```
+nota-fucation is designed to work as-is and be served statically.
+- UNPKG - cdn that serves npm packages directly, keep in mind the security implications of using a script cdn before you settle on this one long term. CDN's are great but I think any of them would suggest to not use them if you are handling sensitive data. Just one more avenue of attack for your site.
+- Serve yourself - Either copy files automatically after install to your static directory or install directly there (I know this can be done cleanly with yarn with it's configurable modules-folder option, not sure how to do it with npm).
+- Bundle - We haven't tested this method, good luck ☺
+
 2. Place a script tag in your public index.html file that imports Nota-Fucation's index.js. Place the import in your <head> tag, for example:
 ```
 <script src='path/to/nota-fucation/index.js' type='module'></script>
