@@ -1,32 +1,54 @@
-WHAT NOTA-FUCATION IS:
+# WHAT NOTA-FUCATION IS
 - Awesome toast notification package with 0 dependencies (super light weight)!
 - Quick and easy to setup and use
-- Minimalistic impact on your code
+- Minimal impact on your code
 - Native web components implementation for fully isolated styling and functionality
 
-USAGE NOTES:
-- How to create and throw event
-- Parameters on the event
-
-USAGE EXAMPLES:
-- React
-
-Although this library is written in native web components, it works great in React as well! It just requires a little setup.
+# INSTALLATION
 
 1. Install nota-fucation into your project
 ```
 npm i --save nota-fucation
 ```
+or
+```
+yarn add nota-fucation
+```
+nota-fucation is designed to work as-is and be served statically.
+- UNPKG - cdn that serves npm packages directly, keep in mind the security implications of using a script cdn before you settle on this one long term. CDN's are great but I think any of them would suggest to not use them if you are handling sensitive data. Just one more avenue of attack for your site.
+- Serve yourself - Either copy files automatically after install to your static directory or install directly there (I know this can be done cleanly with yarn with it's configurable modules-folder option, not sure how to do it with npm).
+- Bundle - We haven't tested this method, good luck ☺
+
 2. Place a script tag in your public index.html file that imports Nota-Fucation's index.js. Place the import in your <head> tag, for example:
 ```
-<script src='./nota-fucation/index.js' type='module'></script>
+<script src='path/to/nota-fucation/index.js' type='module'></script>
 ```
-3. In the same file (index.html), place this inside your <body> tag.
+3. In the same file (index.html), place this inside your <body> tag. For it to display appropriately over all other content, it should be right before the close body tag </body>
 ```
 <nota-fucation></nota-fucation>
 ```
-This inserts a shadow dom into your dom, which listens for your notaToast events.
-4. In any react js/jsx file, create an event of type "notaToast" and add parameters you want, such as a custom message. Here's an example:
+Let us handle the rest. Our component and shadow dom listen for your notaToast events and will position everything appropriately.
+
+
+# USAGE NOTES
+There are two main ways to open a toast, the first requires no special code or requires aside from the install instructions above.
+Simply create a new `Event`, set the supported properties on the object, and dispatch that Event to the DOM. The second method uses some small helper functions we've included for convenience, but all they do is wrap the creation and dispatch into a handy one-liner function. For our examples below we only show off the first method which is ultimately more flexible.
+
+## Supported properties on events
+
+|  property name  | effect                                                                                                                                     |
+| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| message         | text you'd like to display on the toast                                                                                                    |
+| hideCloseButton | show/hide the close button on the toast                                                                                                    |
+| maxTime         | milliseconds the toast will display before auto closing                                                                                    |
+| class           | the type of toast to display, one of ["danger", "warn", "info", "error", "success", "failure"]                                             |
+| position        | which corner the toast will be anchored to, one of ["top-left", "top-middle", "top-right", "bottom-left", "bottom-middle", "bottom-right"] |
+
+# USAGE EXAMPLES
+## React
+
+Although this library is written in native web components, it works great in React as well! It just requires a little setup.
+1. In any react js/jsx file, create an event of type "notaToast" and add parameters you want, such as a custom message. Here's an example:
 ```
 import React from 'react';
 import './App.css';
@@ -49,13 +71,13 @@ function App() {
 export default App;
 ```
 
-5. Enjoy your many reactified Nota-Fucations!
+2. Enjoy your many reactified Nota-Fucations!
 
-- Vue
+## Vue
 ```
 Coming soon
 ```
-- Vanilla JS
+## Vanilla JS
 ```
 <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asdf asdf '; a.class='success'; document.dispatchEvent(a);">
   <button type="submit">Success</button>
@@ -63,3 +85,56 @@ Coming soon
 ...
 <nota-fucation></nota-fucation>
 ```
+# CONFIGURATION
+## changing the defaults
+Coming soon
+
+## Styling your toasts
+Until the ::part and ::theme CSS standards are finished and implemented we offer styling through CSS variables. Our variable names are long yes, but we are opting for clarity over brevity.
+
+The variables provided follow the pattern `--nota-{type}-{property}` where we tried to keep the properties names consistent with the property it affects. For example `--nota-warn-border-color` will change the `border-color` property of the _warn_ event toasts. In addition, the `--nota-default...` properties will set that value for *ALL* toasts unless overridden for the specific type.
+
+Where sub elements are affected another segment is added to the variable name to indicate the section of the toast affected. (e.g. `--nota-warn-progress-background-color`)
+
+Additional customization is planned, we're just evaluating what properties it makes sense to expose. With everything having to be CSS variables right now exposing more means lower performance so we want to only expose what is needed.
+
+|           css variable          |           effect            |   toast type   |
+| ------------------------------- | --------------------------- | -------------- |
+| --nota-button-background-color  | button background color     | all            |
+| --nota-button-text-color        | button color                | all            |
+| --nota-default-color            | color                       | undefined      |
+| --nota-default-border-color     | border-color                | undefined      |
+| --nota-default-background-color | background-color            | undefined      |
+| --nota-default-progress-opacity | progress bar opacity        | undefined      |
+| --nota-default-progress-color   | progress bar color          | undefined      |
+| --nota-danger-color             | color                       | danger         |
+| --nota-danger-border-color      | border-color                | danger         |
+| --nota-danger-background-color  | background-color            | danger         |
+| --nota-danger-progress-opacity  | progress bar opacity        | danger         |
+| --nota-danger-progress-color    | progress bar color          | danger         |
+| --nota-failure-color            | color                       | failure        |
+| --nota-failure-border-color     | border-color                | failure        |
+| --nota-failure-background-color | background-color            | failure        |
+| --nota-failure-progress-opacity | progress bar opacity        | failure        |
+| --nota-failure-progress-color   | progress bar color          | failure        |
+| --nota-warn-color               | color                       | warn           |
+| --nota-warn-border-color        | border-color                | warn           |
+| --nota-warn-background-color    | background-color            | warn           |
+| --nota-warn-progress-opacity    | progress bar opacity        | warn           |
+| --nota-warn-progress-color      | progress bar color          | warn           |
+| --nota-success-color            | color                       | success        |
+| --nota-success-border-color     | border-color                | success        |
+| --nota-success-background-color | background-color            | success        |
+| --nota-success-progress-opacity | progress bar opacity        | success        |
+| --nota-success-progress-color   | progress bar color          | success        |
+| --nota-info-color               | color                       | info           |
+| --nota-info-border-color        | border-color                | info           |
+| --nota-info-background-color    | background-color            | info           |
+| --nota-info-progress-opacity    | progress bar opacity        | info           |
+| --nota-info-progress-color      | progress bar color          | info           |
+
+# Features under consideration or in progress
+- configuration of certain toast behavior globally, no need to pass your defaults to every toast call
+- shown limit - put new toasts in a queue and only show a set number at a time feeding automatically from the queue as the oldest expires
+- toast lifecycle overrides - allow more control over toast lifecycle with smart defaults for those who don't need it
+- toggling of various behaviors - (showing progress bar, no timeout, progress bar render options (smooth, once a second, show seconds instead of a bar, etc...))

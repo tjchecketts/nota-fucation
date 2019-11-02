@@ -5,10 +5,10 @@
     padding: 10px;
     min-width: 100px;
     max-width: 50vw;
-    background-color: var(--nota-default-color, #2257eb);
+    background-color: var(--nota-default-background-color, #2257eb);
     border-radius: 5px;
     margin-top: 7px;
-    color: var(--nota-default-text-color, #fff);
+    color: var(--nota-default-color, #fff);
     overflow: hidden;
 }
 
@@ -44,19 +44,19 @@ progress::-webkit-progress-bar {
 }
 
 progress::-webkit-progress-value {
-    background: var(--nota-progress-default-color, rgb(206, 206, 206));
+    background: var(--nota-default-progress-color, rgb(206, 206, 206));
 }
 
 progress::-moz-progress-bar {
-    background: var(--nota-progress-default-color, rgb(206, 206, 206));
+    background: var(--nota-default-progress-color, rgb(206, 206, 206));
 }
 
 /* Begin Default Nota-Class Styles */
 :host(.danger),
 :host(.error) {
-    background-color: var(--nota-danger-color, #ff815e);
+    background-color: var(--nota-danger-background-color, #ff815e);
     border-color: var(--nota-danger-border-color, #fff);
-    color: var(--nota-danger-text-color, #fff);
+    color: var(--nota-danger-color, #fff);
 }
 
 :host(.danger) progress,
@@ -67,21 +67,21 @@ progress::-moz-progress-bar {
 :host(.danger) progress::-webkit-progress-value {
     background: var(
         --nota-danger-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
 
 :host(.danger) progress::-moz-progress-bar {
     background: var(
         --nota-danger-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
 
 :host(.failure) {
-    background-color: var(--nota-failure-color, #4f0019);
+    background-color: var(--nota-failure-background-color, #4f0019);
     border-color: var(--nota-failure-border-color, #fff);
-    color: var(--nota-failure-text-color, #fff);
+    color: var(--nota-failure-color, #fff);
 }
 
 :host(.failure) progress {
@@ -91,21 +91,21 @@ progress::-moz-progress-bar {
 :host(.failure) progress::-webkit-progress-value {
     background: var(
         --nota-failure-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
 
 :host(.failure) progress::-moz-progress-bar {
     background: var(
         --nota-failure-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
 
 :host(.warn) {
-    background-color: var(--nota-warn-color, #d6b84b);
+    background-color: var(--nota-warn-background-color, #d6b84b);
     border-color: var(--nota-warn-border-color, #fff);
-    color: var(--nota-warn-text-color, #fff);
+    color: var(--nota-warn-color, #fff);
 }
 
 :host(.warn) progress {
@@ -115,21 +115,21 @@ progress::-moz-progress-bar {
 :host(.warn) progress::-webkit-progress-value {
     background: var(
         --nota-warn-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
 
 :host(.warn) progress::-moz-progress-bar {
     background: var(
         --nota-warn-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
 
 :host(.success) {
-    background-color: var(--nota-success-color, #8dbf58);
+    background-color: var(--nota-success-background-color, #8dbf58);
     border-color: var(--nota-success-border-color, white);
-    color: var(--nota-success-text-color, white);
+    color: var(--nota-success-color, white);
 }
 
 :host(.success) progress {
@@ -139,21 +139,21 @@ progress::-moz-progress-bar {
 :host(.success) progress::-webkit-progress-value {
     background: var(
         --nota-success-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
 
 :host(.success) progress::-moz-progress-bar {
     background: var(
         --nota-success-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
 
 :host(.info) {
-    background-color: var(--nota-info-color, #58bf8c);
+    background-color: var(--nota-info-background-color, #58bf8c);
     border-color: var(--nota-info-border-color, white);
-    color: var(--nota-info-text-color, white);
+    color: var(--nota-info-color, white);
 }
 
 :host(.info) progress {
@@ -163,13 +163,13 @@ progress::-moz-progress-bar {
 :host(.info) progress::-webkit-progress-value {
     background: var(
         --nota-info-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
 
 :host(.info) progress::-moz-progress-bar {
     background: var(
         --nota-info-progress-color,
-        var(--nota-progress-default-color, rgb(206, 206, 206))
+        var(--nota-default-progress-color, rgb(206, 206, 206))
     );
 }
