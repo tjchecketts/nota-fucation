@@ -2,6 +2,22 @@
 <html>
     <head>
         <script src='index.js' type='module'></script>
+        <link rel="preload" href='./toast.css' as='style' />
+        <script>
+          function toastCallbackTest() {
+            const testEvent = new Event('notaToast');
+            testEvent.message = 'something important will go here';
+            testEvent.position = 'top-right';
+            testEvent.class = 'success';
+            testEvent.listeners = {
+              attach: e => console.dir(e.target),
+              pause: e => {console.dir(e.target); e.target.style['background-color'] = 'purple';},
+              resume: e => console.dir(e),
+              destruct: e => console.dir(e.target),
+            }
+            document.dispatchEvent(testEvent);
+          }
+        </script>
     </head>
     <body style="background-color: burlywood">
         <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'really long sentence content for a nota-fucation'; a.position = 'bottom-middle'; a.maxTime=100000; document.dispatchEvent(a);">
@@ -21,6 +37,9 @@
         </form>
         <form onsubmit="event.preventDefault(); let a = new Event('notaToast'); a.message = 'asd asdf '; a.position = 'bottom-left'; a.class='success'; document.dispatchEvent(a);">
             <button type="submit">Success</button>
+        </form>
+        <form onsubmit="event.preventDefault();toastCallbackTest();">
+            <button type="submit">Callback</button>
         </form>
         <nota-fucation></nota-fucation>
     </body>
