@@ -83,7 +83,9 @@ customElements.define(
             }
         }
 
-        connectedCallback() {}
+        connectedCallback() {
+            this.dispatchEvent(new Event('attach', { composed: true }));
+        }
 
         redraw() {
             this.messageSpan.innerText = this.message;
@@ -96,12 +98,22 @@ customElements.define(
             this.selfDestructProgressBar.value = 1 - this.selfDestructCounter / this.maxTime;
         }
 
-        mouseOver() {
+        pauseSelfDestruct() {
+            this.dispatchEvent(new Event('pause', { composed: true }));
             this.hovering = true;
         }
 
-        mouseOut() {
+        resumeSelfDestruct() {
+            this.dispatchEvent(new Event('resume', { composed: true }));
             this.hovering = false;
+        }
+
+        mouseOver() {
+            this.pauseSelfDestruct();
+        }
+
+        mouseOut() {
+            this.resumeSelfDestruct();
         }
 
         updateSelfDestruct() {
@@ -115,6 +127,7 @@ customElements.define(
         }
 
         destroy() {
+            this.dispatchEvent(new Event('destruct', { composed: true }));
             clearInterval(this.selfDestructInterval);
             this.parentNode.removeChild(this);
         }

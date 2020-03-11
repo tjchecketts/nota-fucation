@@ -69,6 +69,12 @@ customElements.define(
                 thereBeToast.classList.add(event.class);
             }
 
+            if (event.listeners) {
+                Object.keys(event.listeners).forEach(key => {
+                    thereBeToast.addEventListener(key, event.listeners[key]);
+                });
+            }
+
             switch (event.position) {
                 case "top-left":
                     this.topLeft.appendChild(thereBeToast);
